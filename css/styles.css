@@ -1267,9 +1267,14 @@ html[data-contrast="high"] img {
   margin: var(--s-24) 0;
 }
 
-.book-mention img {
+/* The anchor is the flex child; size and pin it, let the image fill it. */
+.book-mention > a {
   width: 120px;
   flex-shrink: 0;
+}
+
+.book-mention img {
+  width: 100%;
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-default);
 }
