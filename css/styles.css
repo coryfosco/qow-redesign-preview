@@ -920,6 +920,10 @@ a.card {
   box-shadow: var(--shadow-elevated);
 }
 
+.a11y-panel[hidden] {
+  display: none;
+}
+
 .a11y-panel {
   position: fixed;
   bottom: calc(var(--s-16) + 48px + var(--s-8));

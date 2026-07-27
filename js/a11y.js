@@ -6,6 +6,26 @@
 // announced through a polite live region.
 (function () {
   var root = document.documentElement;
+
+  // Saved preferences apply on EVERY page. The control panel only exists
+  // on the homepage (Cyndi's request), so the UI wiring below is guarded
+  // separately; never gate preference application on the panel existing.
+  var prefs = { textSize: 0, highContrast: false, dyslexia: false };
+  try {
+    var saved = JSON.parse(localStorage.getItem("a11y-prefs") || "{}");
+    if (typeof saved.textSize === "number") prefs.textSize = saved.textSize;
+    prefs.highContrast = !!saved.highContrast;
+    prefs.dyslexia = !!saved.dyslexia;
+  } catch (err) {}
+
+  function applyGlobal() {
+    root.style.fontSize = 100 + prefs.textSize * 12.5 + "%";
+    if (prefs.highContrast) root.setAttribute("data-contrast", "high");
+    else root.removeAttribute("data-contrast");
+    document.body.classList.toggle("a11y-dyslexia", prefs.dyslexia);
+  }
+  applyGlobal();
+
   var launcher = document.getElementById("a11y-launcher");
   var panel = document.getElementById("a11y-panel");
   if (!launcher || !panel) return;
@@ -23,14 +43,6 @@
     });
   }
 
-  var prefs = { textSize: 0, highContrast: false, dyslexia: false };
-  try {
-    var saved = JSON.parse(localStorage.getItem("a11y-prefs") || "{}");
-    if (typeof saved.textSize === "number") prefs.textSize = saved.textSize;
-    prefs.highContrast = !!saved.highContrast;
-    prefs.dyslexia = !!saved.dyslexia;
-  } catch (err) {}
-
   function save() {
     try {
       localStorage.setItem("a11y-prefs", JSON.stringify(prefs));
@@ -41,10 +53,7 @@
   var fontSwitch = document.getElementById("a11y-font");
 
   function apply() {
-    root.style.fontSize = 100 + prefs.textSize * 12.5 + "%";
-    if (prefs.highContrast) root.setAttribute("data-contrast", "high");
-    else root.removeAttribute("data-contrast");
-    document.body.classList.toggle("a11y-dyslexia", prefs.dyslexia);
+    applyGlobal();
     contrastSwitch.setAttribute("aria-checked", String(prefs.highContrast));
     fontSwitch.setAttribute("aria-checked", String(prefs.dyslexia));
   }
