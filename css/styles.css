@@ -1123,3 +1123,34 @@ html[data-contrast="high"] img {
     font-size: 1.1rem;
   }
 }
+
+/* ---------- Press assets (media kit): compact two-up grid ---------- */
+
+.press-assets {
+  display: grid;
+  gap: var(--s-24);
+  margin: var(--s-24) 0;
+}
+
+.press-asset {
+  margin: 0;
+}
+
+.press-asset img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-default);
+  margin: 0 0 var(--s-12) 0;
+}
+
+.press-asset figcaption {
+  font-size: var(--text-small);
+  color: var(--ink-muted);
+}
+
+@media (min-width: 768px) {
+  .press-assets {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
