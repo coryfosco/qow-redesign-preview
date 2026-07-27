@@ -1290,3 +1290,38 @@ html[data-contrast="high"] img {
 .book-mention p:last-child {
   margin-bottom: 0;
 }
+
+/* ---------- Signals disclosure (guide) ---------- */
+
+.signals {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  margin: var(--s-16) 0;
+}
+
+.signals summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--s-12) var(--s-16);
+  font-weight: 600;
+  color: var(--brand);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--t-hover) var(--ease-out);
+}
+
+.signals summary:hover {
+  background: var(--brand-tint);
+}
+
+.signals[open] summary {
+  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.signals ul {
+  margin: 0;
+  padding: var(--s-16) var(--s-32);
+}
