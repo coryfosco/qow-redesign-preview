@@ -1154,3 +1154,106 @@ html[data-contrast="high"] img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* ---------- Media one-sheet components ---------- */
+
+/* Elevated band for section rhythm */
+.band {
+  background: var(--surface-elevated);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Quick-fact row under a hero */
+.fact-row {
+  display: grid;
+  gap: var(--s-16);
+  margin-top: var(--s-32);
+}
+
+.fact-row .fact {
+  border-left: 2px solid var(--brand-soft);
+  padding-left: var(--s-16);
+}
+
+.fact-row .fact strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.fact-row .fact span {
+  font-size: var(--text-small);
+  color: var(--ink-muted);
+}
+
+@media (min-width: 768px) {
+  .fact-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Jump navigation: anchor pills */
+.jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-8);
+  padding: var(--s-16) 0;
+}
+
+.jump-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--s-16);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color var(--t-hover) var(--ease-out),
+    border-color var(--t-hover) var(--ease-out);
+}
+
+.jump-nav a:hover {
+  background: var(--brand-tint);
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* Asset download cards */
+.asset-card img {
+  max-width: 180px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-default);
+  margin-bottom: var(--s-16);
+}
+
+.asset-card .btn {
+  margin-top: var(--s-12);
+}
+
+/* Two-column scannable list */
+.two-col-list {
+  columns: 1;
+  padding-left: var(--s-24);
+  margin: 0;
+}
+
+.two-col-list li {
+  margin-bottom: var(--s-12);
+  break-inside: avoid;
+}
+
+@media (min-width: 768px) {
+  .two-col-list {
+    columns: 2;
+    column-gap: var(--s-48);
+  }
+}
+
+/* Anchor targets clear the viewport top */
+[id] {
+  scroll-margin-top: var(--s-24);
+}

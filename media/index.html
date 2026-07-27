@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Media &amp; Speaking | Cory Fosco</title>
   <meta name="description" content="Media kit and speaking hub for Cory Fosco, author of The Question of When. Bio, headshot, book cover, speaking topics, sample podcast questions, and podcast appearances.">
-  <link rel="stylesheet" href="../css/styles.css?v=20260727f">
+  <link rel="stylesheet" href="../css/styles.css?v=20260727g">
   <link rel="icon" href="https://coryfosco.com/favicon.ico">
   <link rel="preload" as="font" type="font/woff2" href="../fonts/inter-400.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="../fonts/fraunces-560.woff2" crossorigin>
-  <script src="../js/nav.js?v=20260727f" defer></script>
-  <script src="../js/a11y.js?v=20260727f" defer></script>
+  <script src="../js/nav.js?v=20260727g" defer></script>
+  <script src="../js/a11y.js?v=20260727g" defer></script>
   <link rel="canonical" href="https://coryfosco.com/media/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cory Fosco">
@@ -100,13 +100,41 @@
 
   <main id="main-content">
 
-    <section class="page-hero">
+    <section class="hero" aria-label="Introduction">
       <div class="container">
-        <span class="label">Media kit</span>
-        <h1>Media &amp; Speaking</h1>
-        <p class="lede">Bio, headshot, book cover, speaking topics, podcast questions, and past appearances. If you are booking a panel, keynote, interview, or podcast, everything a producer or program chair usually asks for is on this page.</p>
+        <div class="hero-copy">
+          <span class="label">Media &amp; Speaking</span>
+          <h1>Everything a producer or program chair needs.</h1>
+          <p class="lede">Cory Fosco spent thirty-four years inside long-term care as a social worker, admissions director, and healthcare executive. He sat with hundreds of families at the moment they needed help most, and he speaks about how families navigate the decisions the system does not prepare them to make.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="../about/#contact">Book Cory</a>
+            <a class="btn btn-secondary" href="#press-heading">Get the press assets</a>
+          </div>
+          <div class="fact-row">
+            <div class="fact"><strong>34 years</strong> <span>in long-term care</span></div>
+            <div class="fact"><strong>Author</strong> <span>of The Question of When</span></div>
+            <div class="fact"><strong>No speaker fee</strong> <span>virtual or in person, year-round</span></div>
+          </div>
+        </div>
+        <div class="hero-cover">
+          <img src="https://coryfosco.com/headshot.jpg" alt="Headshot of Cory Fosco" width="800" height="800">
+        </div>
       </div>
     </section>
+
+    <div class="band">
+      <div class="container">
+        <nav class="jump-nav" aria-label="On this page">
+          <a href="#press-heading">Assets</a>
+          <a href="#bio-heading">Bio</a>
+          <a href="#topics-heading">Speaking topics</a>
+          <a href="#questions-heading">Podcast prep</a>
+          <a href="#seen-heading">Press</a>
+          <a href="#appearances-heading">Interviews</a>
+          <a href="#booking-heading">Book Cory</a>
+        </nav>
+      </div>
+    </div>
 
     <section class="section" aria-labelledby="press-heading">
       <div class="container">
@@ -114,22 +142,24 @@
           <span class="label">Assets</span>
           <h2 id="press-heading">Press &amp; media assets</h2>
         </div>
-        <div class="prose">
-          <div class="press-assets">
-            <figure class="press-asset">
-              <img src="https://coryfosco.com/headshot.jpg" alt="Headshot of Cory Fosco" width="800" height="800">
-              <figcaption>Author headshot. <a href="https://coryfosco.com/headshot.jpg" target="_blank" rel="noopener noreferrer">Download the headshot</a></figcaption>
-            </figure>
-            <figure class="press-asset">
-              <img src="https://coryfosco.com/cover.jpg" alt="The Question of When by Cory Fosco book cover" width="600" height="900">
-              <figcaption>Book cover. <a href="https://coryfosco.com/cover.jpg" target="_blank" rel="noopener noreferrer">Download the book cover</a></figcaption>
-            </figure>
+        <div class="card-grid">
+          <div class="card asset-card">
+            <img src="https://coryfosco.com/headshot.jpg" alt="Headshot of Cory Fosco" width="800" height="800">
+            <h3>Author headshot</h3>
+            <p>High-resolution, print and web ready.</p>
+            <a class="btn btn-secondary" href="https://coryfosco.com/headshot.jpg" target="_blank" rel="noopener noreferrer">Download the headshot</a>
+          </div>
+          <div class="card asset-card">
+            <img src="https://coryfosco.com/cover.jpg" alt="The Question of When by Cory Fosco book cover" width="600" height="900">
+            <h3>Book cover</h3>
+            <p>High-resolution, print and web ready.</p>
+            <a class="btn btn-secondary" href="https://coryfosco.com/cover.jpg" target="_blank" rel="noopener noreferrer">Download the book cover</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="bio-heading">
+    <section class="section band" aria-labelledby="bio-heading">
       <div class="container">
         <div class="section-head">
           <span class="label">About</span>
@@ -187,15 +217,14 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="questions-heading">
+    <section class="section band" aria-labelledby="questions-heading">
       <div class="container">
         <div class="section-head">
           <span class="label">Podcast prep</span>
           <h2 id="questions-heading">Sample podcast questions</h2>
           <p>A short list to make prep easy. Cory is happy to answer these, adapt them to the show&rsquo;s audience, or take the conversation somewhere unexpected.</p>
         </div>
-        <div class="prose">
-          <ul>
+        <ul class="two-col-list">
             <li>How do families know when it is really time for more care?</li>
             <li>What is the difference between assisted living, memory care, and skilled nursing?</li>
             <li>Why do most families wait too long, and what does that cost them?</li>
@@ -204,8 +233,7 @@
             <li>How does a family start the conversation with a parent who refuses to have it?</li>
             <li>What changes when a spouse is the primary caregiver?</li>
             <li>What is one thing you wish every family knew before a crisis?</li>
-          </ul>
-        </div>
+        </ul>
       </div>
     </section>
 
@@ -215,47 +243,52 @@
           <span class="label">Press</span>
           <h2 id="seen-heading">As Seen In</h2>
         </div>
-        <ul class="item-list">
-            <li>
-              <h3><a href="https://thewholecarenetwork.com/when-you-are-the-signal/" target="_blank" rel="noopener noreferrer">When You Are the Signal</a></h3>
-              <p class="item-meta">Whole Care Network &middot; The Light Bulb blog &middot; July 2026</p>
-              <p>A guest essay for the Whole Care Network&rsquo;s Light Bulb blog about the moment a family member realizes they have become the signal in their loved one&rsquo;s care, and how to respond before a crisis makes the decision for them.</p>
-            </li>
-            <li>
-              <h3><a href="https://www.care.com/c/how-to-start-the-care-conversation-with-an-aging-parent/" target="_blank" rel="noopener noreferrer">How to Start the Care Conversation With an Aging Parent</a></h3>
-              <p class="item-meta">Care.com</p>
-              <p>A Care.com feature drawing on my work in long-term care about how families can open the care conversation with an aging parent before a crisis forces it.</p>
-            </li>
-          </ul>
+        <div class="card-grid">
+          <a class="card" href="https://thewholecarenetwork.com/when-you-are-the-signal/" target="_blank" rel="noopener noreferrer">
+            <h3>When You Are the Signal</h3>
+            <p class="item-meta">Whole Care Network &middot; The Light Bulb blog &middot; July 2026</p>
+            <p>A guest essay for the Whole Care Network&rsquo;s Light Bulb blog about the moment a family member realizes they have become the signal in their loved one&rsquo;s care, and how to respond before a crisis makes the decision for them.</p>
+            <span class="card-more">Read the piece</span>
+          </a>
+          <a class="card" href="https://www.care.com/c/how-to-start-the-care-conversation-with-an-aging-parent/" target="_blank" rel="noopener noreferrer">
+            <h3>How to Start the Care Conversation With an Aging Parent</h3>
+            <p class="item-meta">Care.com</p>
+            <p>A Care.com feature drawing on my work in long-term care about how families can open the care conversation with an aging parent before a crisis forces it.</p>
+            <span class="card-more">Read the piece</span>
+          </a>
+        </div>
         <div class="prose">
           <p>Related reading from the site: <a href="../">The Question of When</a>, the free <a href="../resources/four-signal-categories-checklist/">Four Signal Categories Checklist</a>, <a href="../blog/what-medicare-actually-covers-for-long-term-care/">what Medicare covers for long-term care</a>, <a href="../blog/how-to-pay-for-long-term-care/">how to pay for long-term care</a>, <a href="../blog/the-four-types-of-senior-care/">the four types of senior care</a>, and <a href="../blog/when-to-move-from-assisted-living-to-nursing-home/">when to move from assisted living to a nursing home</a>.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="appearances-heading">
+    <section class="section band" aria-labelledby="appearances-heading">
       <div class="container">
         <div class="section-head">
           <span class="label">Interviews</span>
           <h2 id="appearances-heading">Podcast appearances</h2>
         </div>
-        <ul class="item-list">
-            <li>
-              <h3><a href="../media/i-see-what-youre-saying-michael-reddington/">On I See What You're Saying: Navigating Difficult Elder Care Conversations</a></h3>
-              <p class="item-meta">I See What You're Saying (The Disciplined Listening Podcast) with Michael Reddington &middot; June 10, 2026</p>
-              <p>A conversation with Michael Reddington about knowing when a loved one needs more help, the dynamics that delay the talk, and the parallels in sales and leadership.</p>
-            </li>
-            <li>
-              <h3><a href="../media/all-home-care-matters-lance-slatton/">On All Home Care Matters: Knowing When It Is Time</a></h3>
-              <p class="item-meta">All Home Care Matters with Lance A. Slatton &middot; June 4, 2026</p>
-              <p>A conversation with Lance A. Slatton about the question this book keeps circling back to: not where a family should turn, but when.</p>
-            </li>
-            <li>
-              <h3><a href="../media/connecting-the-dots-matt-reiners/">On Connecting the Dots: Why Families Wait, and What Helps</a></h3>
-              <p class="item-meta">Connecting the Dots: Senior Living Success with Matt Reiners &middot; April 28, 2026</p>
-              <p>A conversation with Matt Reiners about why families wait too long, the knowledge gap that keeps them stuck, and how earlier conversations lead to better care decisions.</p>
-            </li>
-          </ul>
+        <div class="card-grid">
+          <a class="card" href="../media/i-see-what-youre-saying-michael-reddington/">
+            <h3>On I See What You're Saying: Navigating Difficult Elder Care Conversations</h3>
+            <p class="item-meta">I See What You're Saying (The Disciplined Listening Podcast) with Michael Reddington &middot; June 10, 2026</p>
+            <p>A conversation with Michael Reddington about knowing when a loved one needs more help, the dynamics that delay the talk, and the parallels in sales and leadership.</p>
+            <span class="card-more">Read the episode notes</span>
+          </a>
+          <a class="card" href="../media/all-home-care-matters-lance-slatton/">
+            <h3>On All Home Care Matters: Knowing When It Is Time</h3>
+            <p class="item-meta">All Home Care Matters with Lance A. Slatton &middot; June 4, 2026</p>
+            <p>A conversation with Lance A. Slatton about the question this book keeps circling back to: not where a family should turn, but when.</p>
+            <span class="card-more">Read the episode notes</span>
+          </a>
+          <a class="card" href="../media/connecting-the-dots-matt-reiners/">
+            <h3>On Connecting the Dots: Why Families Wait, and What Helps</h3>
+            <p class="item-meta">Connecting the Dots: Senior Living Success with Matt Reiners &middot; April 28, 2026</p>
+            <p>A conversation with Matt Reiners about why families wait too long, the knowledge gap that keeps them stuck, and how earlier conversations lead to better care decisions.</p>
+            <span class="card-more">Read the episode notes</span>
+          </a>
+        </div>
       </div>
     </section>
 
