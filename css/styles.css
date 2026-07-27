@@ -1257,3 +1257,23 @@ html[data-contrast="high"] img {
 [id] {
   scroll-margin-top: var(--s-24);
 }
+
+/* ---------- Inline book mention: cover beside its description ---------- */
+
+.book-mention {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-24);
+  margin: var(--s-24) 0;
+}
+
+.book-mention img {
+  width: 120px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-default);
+}
+
+.book-mention p {
+  margin: 0;
+}
