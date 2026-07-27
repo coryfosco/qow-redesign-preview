@@ -1100,3 +1100,26 @@ html[data-contrast="high"] img {
     top: calc(64px + var(--s-16) + 48px + var(--s-8));
   }
 }
+
+/* OS-level contrast preferences, mirroring the live site's support.
+   Users who set high contrast at the system level get it without
+   touching the panel. */
+@media (prefers-contrast: high) {
+  :root {
+    --border: rgba(24, 33, 25, 0.4);
+    --border-strong: rgba(24, 33, 25, 0.7);
+    --ink-muted: #33402f;
+  }
+
+  .card,
+  .btn-secondary,
+  .a11y-btn {
+    border-width: 2px;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body {
+    font-size: 1.1rem;
+  }
+}
