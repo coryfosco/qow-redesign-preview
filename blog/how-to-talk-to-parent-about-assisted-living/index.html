@@ -75,6 +75,29 @@
     <a class="btn btn-primary btn-header" href="../../resources/four-signal-categories-checklist/">Get the checklist</a>
   </div>
 </header>
+<button type="button" class="a11y-launcher" id="a11y-launcher" aria-expanded="false" aria-controls="a11y-panel">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2.5"/><path d="M12 7v5"/><path d="M8 10l4 2 4-2"/><path d="M10 17l2-5 2 5"/><path d="M8 20l2-3"/><path d="M16 20l-2-3"/></svg>
+  Accessibility
+</button>
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Accessibility settings" hidden>
+  <h2 class="a11y-panel-title">Accessibility</h2>
+  <div class="a11y-option">
+    <span class="a11y-option-label" id="a11y-textsize-label">Text Size</span>
+    <div class="a11y-option-controls" role="group" aria-labelledby="a11y-textsize-label">
+      <button type="button" class="a11y-btn" id="a11y-text-dec" aria-label="Decrease text size">A&minus;</button>
+      <button type="button" class="a11y-btn" id="a11y-text-inc" aria-label="Increase text size">A+</button>
+    </div>
+  </div>
+  <div class="a11y-option">
+    <span class="a11y-option-label" id="a11y-contrast-label">High Contrast</span>
+    <button type="button" class="a11y-toggle" id="a11y-contrast" role="switch" aria-checked="false" aria-labelledby="a11y-contrast-label"></button>
+  </div>
+  <div class="a11y-option">
+    <span class="a11y-option-label" id="a11y-font-label">Readable Font</span>
+    <button type="button" class="a11y-toggle" id="a11y-font" role="switch" aria-checked="false" aria-labelledby="a11y-font-label"></button>
+  </div>
+  <button type="button" class="a11y-reset" id="a11y-reset">Reset All</button>
+</div>
   <main id="main-content">
 
     <section class="page-hero">
