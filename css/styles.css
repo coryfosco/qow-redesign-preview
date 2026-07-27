@@ -1325,3 +1325,34 @@ html[data-contrast="high"] img {
   margin: 0;
   padding: var(--s-16) var(--s-32);
 }
+
+/* ---------- Praise: testimonial card wall ---------- */
+
+.quote-grid {
+  columns: 1;
+  column-gap: var(--s-24);
+}
+
+.quote-grid .quote-item {
+  break-inside: avoid;
+  margin: 0 0 var(--s-24) 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 1px solid var(--brand-soft);
+  border-radius: var(--radius-md);
+  padding: var(--s-24);
+  box-shadow: var(--shadow-subtle);
+  font-size: var(--text-body);
+}
+
+@media (min-width: 768px) {
+  .quote-grid {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quote-grid {
+    columns: 3;
+  }
+}
