@@ -104,8 +104,8 @@
     var target = document.getElementById(id);
     if (!target) return;
     if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
-    requestAnimationFrame(function () {
-      target.focus({ preventScroll: true });
-    });
+    // Synchronous focus: it scrolls the target into view itself and runs
+    // before the browser's own hash navigation, so the two never fight.
+    target.focus();
   });
 })();
