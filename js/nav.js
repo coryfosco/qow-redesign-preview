@@ -92,40 +92,52 @@
   });
 })();
 
-// anchor-focus: when a same-page anchor is activated, move real focus to
-// the target. Without this, VoiceOver keeps focus on the link and snaps
-// the view back to it, which reads as "the button goes back to the top."
+// Anchor handling, one implementation for both cases:
+// 1. Activating any link that resolves to the CURRENT page with a
+//    #fragment (href="#x" or href="/about/#contact" while on /about/)
+//    moves real focus to the target so assistive tech follows the jump.
+// 2. Arriving on a page WITH a #fragment re-anchors after the browser,
+//    fonts, and layout settle; late font swaps otherwise push the
+//    target back out of view on first visits.
 (function () {
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest('a[href^="#"]');
-    if (!a) return;
-    var id = a.getAttribute("href").slice(1);
-    if (!id) return;
-    var target = document.getElementById(id);
-    if (!target) return;
+  function goTo(target) {
     if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
-    // Synchronous focus: it scrolls the target into view itself and runs
-    // before the browser's own hash navigation, so the two never fight.
     target.focus();
-  });
-})();
+    target.scrollIntoView();
+  }
 
-// hash-arrival: when a page LOADS with a #fragment (cross-page links
-// like /about/#contact), move real focus to the target. Screen readers
-// otherwise start reading from the top of the new page and pull the
-// view back up, which reads as "it went to the top instead."
-(function () {
-  function focusHashTarget() {
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a[href]");
+    if (!a) return;
+    var url;
+    try {
+      url = new URL(a.href, location.href);
+    } catch (err) {
+      return;
+    }
+    if (!url.hash || url.pathname !== location.pathname) return;
+    var target = document.getElementById(url.hash.slice(1));
+    if (!target) return;
+    goTo(target);
+  });
+
+  function settleArrival() {
     if (!location.hash) return;
     var target = document.getElementById(location.hash.slice(1));
-    if (!target) return;
-    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
-    target.focus();
+    if (target) goTo(target);
   }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", focusHashTarget);
+    document.addEventListener("DOMContentLoaded", settleArrival);
   } else {
-    focusHashTarget();
+    settleArrival();
   }
-  window.addEventListener("load", focusHashTarget);
+  window.addEventListener("load", settleArrival);
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted) settleArrival();
+  });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(settleArrival);
+  }
+  setTimeout(settleArrival, 700);
 })();
