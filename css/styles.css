@@ -1072,6 +1072,49 @@ html[data-contrast="high"] img {
   opacity: 0.9;
 }
 
+/* High-contrast component fixes: these rules carry hardcoded light-mode
+   colors, so the token flip alone leaves them unreadable on the dark
+   theme. Override inside the HC theme only, reusing its tokens. */
+html[data-contrast="high"] .skip-link {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+html[data-contrast="high"] .wordmark {
+  color: var(--ink);
+}
+
+html[data-contrast="high"] .site-nav a,
+html[data-contrast="high"] .nav-toggle {
+  color: var(--ink-muted);
+}
+
+html[data-contrast="high"] .site-nav a:hover,
+html[data-contrast="high"] .site-nav a[aria-current="page"],
+html[data-contrast="high"] .nav-toggle:hover,
+html[data-contrast="high"] .nav-toggle[aria-expanded="true"] {
+  color: var(--ink);
+}
+
+html[data-contrast="high"] .btn-primary {
+  background: var(--brand);
+  color: var(--paper);
+}
+
+html[data-contrast="high"] .btn-primary:hover {
+  color: var(--paper);
+}
+
+html[data-contrast="high"] .btn-secondary {
+  color: var(--ink);
+  border-color: var(--border-strong);
+}
+
+html[data-contrast="high"] .btn-secondary:hover {
+  background: var(--surface);
+  color: var(--ink);
+}
+
 /* Visually hidden, available to assistive technology */
 .sr-only {
   position: absolute;
