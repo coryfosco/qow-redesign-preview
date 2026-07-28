@@ -109,3 +109,23 @@
     target.focus();
   });
 })();
+
+// hash-arrival: when a page LOADS with a #fragment (cross-page links
+// like /about/#contact), move real focus to the target. Screen readers
+// otherwise start reading from the top of the new page and pull the
+// view back up, which reads as "it went to the top instead."
+(function () {
+  function focusHashTarget() {
+    if (!location.hash) return;
+    var target = document.getElementById(location.hash.slice(1));
+    if (!target) return;
+    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+    target.focus();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", focusHashTarget);
+  } else {
+    focusHashTarget();
+  }
+  window.addEventListener("load", focusHashTarget);
+})();
