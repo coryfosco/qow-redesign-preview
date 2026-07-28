@@ -99,9 +99,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* No global smooth scrolling: in-page jumps on these pages span
+   thousands of pixels, and a long animated scroll is disorienting for
+   low-vision and screen reader users and races assistive tech focus.
+   Jumps are instant; focus management in nav.js keeps AT in sync. */
 
 body {
   margin: 0;
