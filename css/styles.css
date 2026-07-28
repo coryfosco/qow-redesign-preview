@@ -893,10 +893,6 @@ a.card {
 /* ---------- Accessibility panel (ported from live AccessibilityToolbar) ---------- */
 
 .a11y-launcher {
-  position: fixed;
-  bottom: var(--s-16);
-  right: var(--s-16);
-  z-index: 90;
   display: inline-flex;
   align-items: center;
   gap: var(--s-8);
@@ -910,9 +906,8 @@ a.card {
   font-size: var(--text-small);
   font-weight: 600;
   cursor: pointer;
-  box-shadow: var(--shadow-default);
-  transition: transform var(--t-hover) var(--ease-out),
-    box-shadow var(--t-hover) var(--ease-out);
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow var(--t-hover) var(--ease-out);
 }
 
 .a11y-launcher:hover {
@@ -925,9 +920,9 @@ a.card {
 }
 
 .a11y-panel {
-  position: fixed;
-  bottom: calc(var(--s-16) + 48px + var(--s-8));
-  right: var(--s-16);
+  position: absolute;
+  top: 100%;
+  right: var(--s-20);
   z-index: 90;
   width: min(320px, calc(100vw - var(--s-32)));
   background: var(--surface);
@@ -1372,4 +1367,20 @@ html[data-contrast="high"] img {
   .keep-together {
     white-space: nowrap;
   }
+}
+
+/* Dock: the accessibility control lives in the page flow under the
+   header. Never fixed, so it can never sit on top of another control
+   when VoiceOver scrolls a target to the screen edge. */
+.a11y-dock {
+  background: var(--surface-elevated);
+  border-bottom: 1px solid var(--border);
+}
+
+.a11y-dock .container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--s-8);
+  padding-bottom: var(--s-8);
 }
