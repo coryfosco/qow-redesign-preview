@@ -91,3 +91,21 @@
     if (!e.target.closest(".nav-item")) closeAll();
   });
 })();
+
+// anchor-focus: when a same-page anchor is activated, move real focus to
+// the target. Without this, VoiceOver keeps focus on the link and snaps
+// the view back to it, which reads as "the button goes back to the top."
+(function () {
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute("href").slice(1);
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+    requestAnimationFrame(function () {
+      target.focus({ preventScroll: true });
+    });
+  });
+})();
